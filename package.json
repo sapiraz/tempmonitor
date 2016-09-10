@@ -1,0 +1,21 @@
+{
+  "name": "tempmonitor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://raz_sapir@bitbucket.org/raz_sapir/tempmonitor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/raz_sapir/tempmonitor#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "request": "^2.74.0"
+  }
+}

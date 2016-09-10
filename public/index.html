@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Monitor</title>
+    <link rel="stylesheet" href="/styles/style.min.css" charset="utf-8">
+    <link rel="stylesheet" href="components/Cesium/Widgets/widgets.css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" src="components/Cesium/Cesium.js"></script>
+    <script type="text/javascript" src="scripts/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/angular-route.min.js"></script>
+    <script type="text/javascript" src="scripts/angular-animate.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/controllers.js"></script>
+    <script type="text/javascript" src="scripts/directives.js"></script>
+    <script type="text/javascript" src="scripts/services.js"></script>
+    <script type="text/javascript" src="scripts/socket.io.js"></script>
+  </head>
+  <body ng-app="monitorApp">
+    <header id="main_head">
+      <div class="logo"><img src="images/ayyeka.png" alt="" /></div>
+    </header>
+    <section id="main_content" ng-view ng-animate-children></section>
+  </div>
+  </body>
+</html>

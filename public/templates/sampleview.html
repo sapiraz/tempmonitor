@@ -1,0 +1,25 @@
+<div class="sampleView">
+  <div class="tempWrapper" style="color:{{tempColor(point.data[0].main.temp)}}">
+    <div class="temp">
+      {{point.data[0].main.temp}}
+    </div>
+    <div class="weatherVisualizer">
+      <div class="sun blue" ng-if="point.data[0].main.temp <= 10 && point.data[0].clouds.all <= 75"></div>
+      <div class="sun yellow" ng-if="point.data[0].main.temp > 10 && point.data[0].main.temp <= 30 && point.data[0].clouds.all <= 75"></div>
+      <div class="sun red" ng-if="point.data[0].main.temp > 30 && point.data[0].clouds.all <= 75"></div>
+      <div class="cloud small" ng-if="point.data[0].clouds.all > 10 && point.data[0].clouds.all <= 50"></div>
+      <div class="cloud medium" ng-if="point.data[0].clouds.all > 50 && point.data[0].clouds.all <= 75"></div>
+      <div class="cloud big" ng-if="point.data[0].clouds.all > 75"></div>
+    </div>
+    <div class="circle humidity">
+      {{point.data[0].main.humidity}}%
+    </div>
+    <div class="circle wind">
+      {{point.data[0].wind.speed}}
+    </div>
+    <div class="circle cloudiness">
+      {{point.data[0].clouds.all}}%
+    </div>
+  </div>
+  <h3 class="title">{{point.data[0].name}}, {{point.country ? point.country : point.data[0].sys.country}}</h3>
+</div>

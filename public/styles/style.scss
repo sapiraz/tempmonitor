@@ -1,0 +1,249 @@
+
+//Stylesheet by Raz Sapir
+@import 'mixins';
+@import './animate.css';
+@import '../fonts/montserrat/font.css';
+
+body,html {
+  padding:0;
+  margin:0;
+  width:100%;
+  height:100%;
+  font-family: MontserratThin;
+}
+
+.logo {
+  height:100%;
+  * {
+    height:100%;
+  }
+}
+
+#main_head {
+  background:#FFF;
+  height:50px;
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:999;
+  padding:5px;
+  box-sizing:border-box;
+}
+#main_content {
+  top:50px;
+  left:0;
+  right:0;
+  bottom:0;
+  position:absolute;
+  box-sizing:border-box;
+}
+#cesium-copy {display:none}
+.globe {
+  height:100%;
+}
+.sampleView {
+  position:fixed;
+  top:calc(50px + 15vh);
+  bottom:15vh;
+  background:rgba(255,255,255,.8);
+  background:transparent;
+  left:60%;
+  right:15vh;
+  border-radius:15px;
+  z-index:10;
+  padding:5vh;
+  box-sizing:border-box;
+  font-size:5vh;
+  & .tempWrapper {
+    position:absolute;
+    left:50%;
+    top:50%;
+    display: inline-block;
+    @include vendor_prop(transform,translateX(-50%) translateY(-50%));
+    width:25vh;
+    height:25vh;
+    background:currentColor;
+    border-radius:13vh;
+    text-align:center;
+    &:before {
+      content:"";
+      position:absolute;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      background:inherit;
+      color:inherit;
+      opacity:.5;
+      z-index:-1;
+      border-radius:999px;
+      @include vendor_prop(animation,tempGlow 2s infinite linear);
+    }
+    & > .temp {
+      position:absolute;
+      left:50%;
+      top:50%;
+      display: inline-block;
+      @include vendor_prop(transform,translateX(-50%) translateY(-50%));
+      width:25vh;
+      height:25vh;
+      background:transparent;
+      overflow:hidden;
+      border-radius:13vh;
+      text-align:center;
+      color:#FFF;
+      line-height:25vh;
+      font-size:7vh;
+      &:after {content:"\00b0";margin-left:-10px;}
+    }
+    & > .circle {
+      background: rgba(0,0,0,0.2);
+      width: 7vh;
+      border-radius: 4vh;
+      font-size: 2.5vh;
+      height: 7vh;
+      color: #FFF;
+      border: 1px solid #FFF;
+      position: absolute;
+      line-height: 7vh;
+      text-align:center;
+
+      &:after {
+        content:"";
+        position:absolute;
+        display: block;
+        background:#FFF;
+        right:-2vh;
+        top:-2vh;
+        border-radius:999px;
+        border:.3vh solid #FFF;
+        line-height:4vh;
+        width:4vh;
+        height:4vh;
+        background-size:70%;
+      }
+      &.wind {
+        top:50%;
+        left:110%;
+        @include vendor_prop(transform,translateY(-50%));
+        &:after {
+          background:#FFF url('../images/wind.png') no-repeat center center;
+        }
+      }
+      &.humidity {
+        top: 0%;
+        left: 94%;
+        @include vendor_prop(transform,translateY(-50%));
+        &:after {
+          background:#FFF url('../images/drop.png') no-repeat center center;
+        }
+      }
+      &.cloudiness {
+        bottom: 0%;
+        left: 94%;
+        @include vendor_prop(transform,translateY(50%));
+        &:after {
+          background:#FFF url('../images/cloud.png') no-repeat center center;
+        }
+      }
+    }
+    .weatherVisualizer {
+      position:absolute;
+      bottom:17vh;
+      right:17vh;
+      width:88px;
+      height:88px;
+      width:10vh;
+      height:10vh;
+      & > * {
+        position:absolute;
+        background:url('../images/weatherIcons.png') no-repeat;
+        width:88px;
+        height:88px;
+
+        width:100%;
+        height:100%;
+        background-size:cover;
+      }
+      .sun {
+        z-index:0;
+        &.blue {
+          background-image:url("../images/bluesun.png");
+        }
+        &.yellow {
+          background-image:url("../images/yellowsun.png");
+          // background-position: -88px 0px;
+        }
+        &.red {
+          background-image:url("../images/redsun.png");
+          // background-position: 0 0;
+        }
+      }
+      .cloud {
+        z-index:1;
+        &.small {
+          background-image:url("../images/smallcloud.png");
+          // background-position:-176px -88px;
+
+        }
+        &.medium {
+          // background-position:-88px -88px;
+          background-image:url("../images/mediumcloud.png");
+        }
+        &.big {
+          // background-position:0 -88px;
+          background-image:url("../images/bigcloud.png");
+        }
+      }
+    }
+  }
+
+  & > .title {
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    position: absolute;
+    text-align: center;
+    color: #FFF;
+    top: calc(50% + 15vh);
+    text-align: center;
+    @include vendor_prop(filter,drop-shadow(0 0 30px rgba(0,0,0,.5)));
+    left: 50%;
+    @include vendor_prop(transform, translateX(-50%));
+  }
+  & > .coords {
+    color:#B1B1B1;
+    font-size:.5em;
+  }
+  &.ng-enter {
+    @include vendor_prop(animation, fadeIn 2s forwards);
+  }
+  &.ng-enter {
+    @include vendor_prop(animation, fadeOut 500ms forwards);
+  }
+}
+
+@include keyframes(tempGlow) {
+  0% {
+    box-shadow: 0 0 0 0px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 0 50px currentColor;
+  }
+  100% {
+    box-shadow: 0 0 0 100px rgba(0,0,0,0);
+  }
+}
+@include keyframes(stretchRight) {
+  0% {
+    left:100%;
+  }
+  50% {
+    left:45%;
+  }
+  100% {
+    left:55%;
+  }
+}

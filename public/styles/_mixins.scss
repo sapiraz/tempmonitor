@@ -1,0 +1,17 @@
+@mixin vendor_prop($prop,$value){
+  -webkit-#{$prop}:$value;
+  o-#{$prop}:$value;
+  -moz-#{$prop}:$value;
+  #{$prop}:$value;
+}
+@mixin keyframes($name){
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
