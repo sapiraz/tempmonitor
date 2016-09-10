@@ -1,6 +1,6 @@
 app.service("socketConnection",["$rootScope",function($rootScope){
     console.log("Connecting to web socket");
-    var socket = io.connect("http://10.0.0.11:3000");
+    var socket = io.connect("http://127.0.0.1:3000");
     this.connected = false;
     socket.on("connect",function(){
       this.connected = true;
